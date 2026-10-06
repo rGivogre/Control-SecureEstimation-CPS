@@ -1,0 +1,14 @@
+# MATLAB files
+*.asv
+*.mat
+!dynamic_CPS_data.mat
+!tracking_data.mat
+*~
+slprj/
+*.slxc
+*.autosave
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
