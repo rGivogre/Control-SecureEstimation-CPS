@@ -17,7 +17,16 @@ This project implements a decentralized cooperative tracking framework for a mul
 - **Distributed State Estimation:** Designed and compared two observer structures to reconstruct unmeasurable states:
     1. **Local Observers:** Each agent estimates its own state independently.
     2. **Cooperative Distributed Neighborhood Observers:** Agents update their estimates using state information exchanged with their neighbors over a communication graph.
+
+<p align="center">
+    <img src="images/neighborcooperativeagent.png" alt="Neighbor Cooperative Agent Simulink Block" width="700"/>
+</p>
+
 - **Network Topologies:** Evaluated the performance and robustness of the cooperative control law across multiple graph structures (Chain, Ring, Star, Mesh, Fully Connected), analyzing the required coupling gain ($c$) based on the Laplacian matrix eigenvalues.
+
+<p align="center">
+    <img src="images/topologies.png" alt="Network Topologies" width="500"/>
+</p>
 
 ### Execution
 Run `Maglev_sim_1.slx` or `Maglev_sim_2.slx` via Simulink after executing the topology scripts in the `src` folder (e.g. `mesh.m`) to load the workspace variables.
@@ -29,6 +38,11 @@ This project addresses the challenge of estimating the state of a dynamic CPS ($
 - **Algorithm Implementation:** Developed the Sparse Soft Observer (**SSO**) and the Deadbeat Sparse Soft Observer (**D-SSO**) to achieve online tracking of both the system state and the sparse attack vector.
 - **L1-Norm Optimization (P-Lasso):** Leveraged the iterative soft-thresholding operator to enforce sparsity in the attack estimation, isolating the compromised sensors.
 - **Target Tracking & Convergence:** Demonstrated that the D-SSO algorithm achieves finite-time convergence, accurately tracking moving targets (Task 4) and rejecting bounded measurement noise and adversarial injections.
+
+<p align="center">
+  <img src="images/x_normal.jpg" alt="State Estimation Error D-SSO vs SSO" width="400"/>
+  <img src="images/a_normal.jpg" alt="Support Attack Error D-SSO vs SSO" width="400"/>
+</p>
 
 ### Execution
 Run `main.m` within `Task3_Dynamic_CPS` or `Task4_Target_Tracking` to simulate the observer dynamics and plot the state and attack support estimation errors.
